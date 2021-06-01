@@ -8,9 +8,12 @@ add_subdirectory(my_print_dir)
 add_executable(calculator 
 main.cpp)
 
-set(restclient-cpp_DIR "/usr/local/lib/")
+set(restclient-cpp_DIR ${CMAKE_PREFIX_PATH})
 
-find_package(restclient-cpp REQUIRED)
+include(/home/alphapro/vcpkg/scripts/buildsystems/vcpkg.cmake)
+
+find_package(restclient-cpp CONFIG REQUIRED)
+    
 if(restclient-cpp_FOUND)
     message("Founded")
     target_link_libraries(calculator PRIVATE restclient-cpp)

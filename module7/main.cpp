@@ -3,6 +3,7 @@
 #include "addition.h"
 #include "division.h"
 #include "print_result.h"
+#include "restclient-cpp/restclient.h"
 
 int main(){
 
@@ -19,6 +20,8 @@ result_div = division(first_no , second_no);
 print_result("Addition", result_add);
 print_result("Division", result_div);
 //std::cout<< "Addition result:\t"<< result_add<< "\nDivision result:\t"<< result_div<< "\n";
+RestClient::Response r = RestClient::get("https://www.google.com/");
+std::cout<< r.body.c_str();
 
 return 0;
 
